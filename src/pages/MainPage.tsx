@@ -1,8 +1,8 @@
 import React from 'react';
 
 /* 
-    메인 페이지 
-    이미지 검색과 키워드 검색
+  메인 페이지 
+  이미지 검색과 키워드 검색
 */
 
 function MainPage() {
