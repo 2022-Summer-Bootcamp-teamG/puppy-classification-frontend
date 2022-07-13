@@ -86,7 +86,7 @@ const Common = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 4rem;
+  margin-top: 3rem;
   width: 70rem;
   .swiper {
     &-wrapper,

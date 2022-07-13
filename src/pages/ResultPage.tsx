@@ -2,7 +2,7 @@ import React from 'react';
 import { Title } from '../components/common/Title';
 import styled from 'styled-components';
 import Carousel from '../components/Carousel';
-import Header from '../components/common/Header';
+import Header from '../components/Header';
 
 /* 
   결과 페이지
@@ -29,9 +29,9 @@ const Common = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 7em;
+  margin-top: 4em;
   @media all and (max-width: 767px) {
-    margin-top: 4em;
+    margin-top: 3em;
   }
 `;
 
