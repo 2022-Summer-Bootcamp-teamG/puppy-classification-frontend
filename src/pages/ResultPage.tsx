@@ -26,6 +26,9 @@ const Common = styled.div`
   flex-direction: column;
   align-items: center;
   margin-top: 7em;
+  @media all and (max-width: 767px) {
+    margin-top: 4em;
+  }
 `;
 
 export default ResultPage;

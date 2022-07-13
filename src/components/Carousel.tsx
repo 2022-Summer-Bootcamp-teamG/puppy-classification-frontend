@@ -24,7 +24,8 @@ function Carousel() {
   useEffect(() => {
     if (!swiperSetting) {
       setSwiperSetting({
-        spaceBetween: 4,
+        spaceBetween: 23,
+        direction: 'vertical',
         navigation: {
           prevEl: prevRef.current, // 이전 버튼
           nextEl: nextRef.current, // 다음 버튼
@@ -39,6 +40,18 @@ function Carousel() {
             }
           }
           swiper.navigation.update();
+        },
+        breakpoints: {
+          768: {
+            direction: 'horizontal',
+            slidesPerView: 3, //브라우저가 768보다 클 때
+            spaceBetween: 4,
+          },
+          1024: {
+            direction: 'horizontal',
+            slidesPerView: 3, //브라우저가 1024보다 클 때
+            spaceBetween: 4,
+          },
         },
       });
     }
@@ -74,22 +87,55 @@ const Common = styled.div`
   justify-content: center;
   align-items: center;
   margin-top: 4rem;
-  width: 80rem;
+  width: 70rem;
   .swiper {
     &-wrapper,
     &-container {
-      width: 80rem;
+      width: 70rem;
       margin: 0;
     }
     &-container {
-      margin-left: 5em;
+      margin-left: 1.5rem;
+    }
+  }
+  @media all and (min-width: 768px) and (max-width: 1023px) {
+    width: 50rem;
+    .swiper {
+      &-wrapper,
+      &-container {
+        width: 50rem;
+        margin: 0;
+      }
+      &-container {
+        margin-left: 1.5rem;
+      }
+    }
+  }
+  @media all and (max-width: 767px) {
+    display: flex;
+    width: 20rem;
+    margin-top: 3rem;
+    .swiper {
+      &-wrapper,
+      &-container {
+        width: 20rem;
+        margin: 0;
+      }
+      &-slide {
+        display: flex;
+        justify-content: center;
+      }
     }
   }
 `;
 
 const Button = styled.button`
+  display: flex;
   background: none;
   border: none;
+  @media all and (max-width: 767px) {
+    display: none;
+  }
 `;
 
 const faStyle = {

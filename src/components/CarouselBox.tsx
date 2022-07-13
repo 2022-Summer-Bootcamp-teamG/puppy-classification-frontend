@@ -34,6 +34,12 @@ const BreedName = styled.div`
   font-family: Pretendard;
   font-weight: 700;
   color: #000;
+  @media all and (min-width: 768px) and (max-width: 1023px) {
+    font-size: 1.5rem;
+  }
+  @media all and (max-width: 767px) {
+    font-size: 1.3rem;
+  }
 `;
 
 const Percent = styled.div`
@@ -42,6 +48,13 @@ const Percent = styled.div`
   font-family: Pretendard;
   ont-weight: 500;
   color: #454545;
+  @media all and (min-width: 768px) and (max-width: 1023px) {
+    font-size: 0.9rem;
+  }
+  @media all and (max-width: 767px) {
+    margin-top: 0.1rem;
+    font-size: 0.9rem;
+  }
 `;
 
 export default CarouselBox;
