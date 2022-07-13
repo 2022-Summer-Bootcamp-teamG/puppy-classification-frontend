@@ -12,13 +12,6 @@ import Carousel from '../components/Carousel';
 
 // };
 
-const Common = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 7em;
-`;
-
 function ResultPage() {
   return (
     <Common>
@@ -27,5 +20,12 @@ function ResultPage() {
     </Common>
   );
 }
+
+const Common = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 7em;
+`;
 
 export default ResultPage;

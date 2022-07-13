@@ -12,6 +12,17 @@ interface CarouselBoxProps {
   img: string;
   percent: number;
 }
+
+function CarouselBox({ img, percent, breedName }: CarouselBoxProps) {
+  return (
+    <Common>
+      <Image src={img} />
+      <BreedName>{breedName}</BreedName>
+      <Percent>정확도: {percent}%</Percent>
+    </Common>
+  );
+}
+
 const Common = styled.div`
   display: flex;
   flex-direction: column;
@@ -32,15 +43,5 @@ const Percent = styled.div`
   ont-weight: 500;
   color: #454545;
 `;
-
-function CarouselBox({ img, percent, breedName }: CarouselBoxProps) {
-  return (
-    <Common>
-      <Image src={img} />
-      <BreedName>{breedName}</BreedName>
-      <Percent>정확도: {percent}%</Percent>
-    </Common>
-  );
-}
 
 export default CarouselBox;
