@@ -11,8 +11,8 @@ const Image = styled.img`
     height: 9rem;
   }
   @media all and (max-width: 767px) {
-    width: 19rem;
-    height: 13rem;
+    width: 16rem;
+    height: 11rem;
     margin-bottom: 0.3rem;
   }
 `;
