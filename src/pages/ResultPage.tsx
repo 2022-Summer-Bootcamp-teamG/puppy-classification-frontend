@@ -2,6 +2,7 @@ import React from 'react';
 import { Title } from '../components/common/Title';
 import styled from 'styled-components';
 import Carousel from '../components/Carousel';
+import Header from '../components/common/Header';
 
 /* 
   결과 페이지
@@ -14,10 +15,13 @@ import Carousel from '../components/Carousel';
 
 function ResultPage() {
   return (
-    <Common>
-      <Title>결과</Title>
-      <Carousel />
-    </Common>
+    <React.Fragment>
+      <Header />
+      <Common>
+        <Title>결과</Title>
+        <Carousel />
+      </Common>
+    </React.Fragment>
   );
 }
 

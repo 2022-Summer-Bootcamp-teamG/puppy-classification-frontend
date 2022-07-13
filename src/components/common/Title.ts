@@ -9,7 +9,7 @@ const Title = styled.div`
     font-size: 2.5rem;
   }
   @media all and (max-width: 767px) {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
 `;
 

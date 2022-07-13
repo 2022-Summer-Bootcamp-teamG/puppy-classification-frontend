@@ -12,7 +12,7 @@ import 'swiper/components/navigation/navigation.min.css';
 
 /*
     이미지 캐러셀 컨테이너
-    TODO: API 연동 후 코드 수정 필요
+    TODO: API 연동 후 props&key 및 Link 추가 필요
 */
 
 function Carousel() {

@@ -3,8 +3,8 @@ import styled from 'styled-components';
 import { Image } from './common/Image';
 
 /* 
-캐러샐 내부 개별 콘텐츠
-   강아지 이름, 정확도, 이미지 포함
+  캐러샐 내부 개별 콘텐츠
+  강아지 이름, 정확도, 이미지 포함
 */
 
 interface CarouselBoxProps {
@@ -16,7 +16,7 @@ interface CarouselBoxProps {
 function CarouselBox({ img, percent, breedName }: CarouselBoxProps) {
   return (
     <Common>
-      <Image src={img} />
+      <Image src={img} alt={breedName} />
       <BreedName>{breedName}</BreedName>
       <Percent>정확도: {percent}%</Percent>
     </Common>
