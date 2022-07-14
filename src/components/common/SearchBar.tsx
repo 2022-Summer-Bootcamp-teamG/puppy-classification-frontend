@@ -70,7 +70,8 @@ const SearchBox = styled.div`
 `;
 
 const Input = styled.input<SearchBarProps>`
-  width: 17.638rem;
+  width: ${props => (props.isTransition ? '17.638rem' : '34rem')};
+  height: ${props => (props.isTransition ? '1rem' : '1.8rem')};
   border-radius: 2rem;
   border: none;
   padding: 0.5rem 0.8rem;
@@ -78,34 +79,36 @@ const Input = styled.input<SearchBarProps>`
     outline: none;
   }
   @media all and (max-width: 767px) {
-    width: ${props => (props.isTransition ? '0.1rem' : '20rem')};
+    width: ${props => (props.isTransition ? '0.1rem' : '18rem')};
+    height: ${props => (props.isTransition ? '1rem' : '1.5rem')};
     transition: ${props => (props.isTransition ? 'all 0.3s ease' : 'no')};
   }
 `;
 
 const Label = styled.label<SearchBarProps>`
   position: absolute;
-  width: 2.1rem;
-  height: 2.1rem;
+  width: ${props => (props.isTransition ? '2.1rem' : '3.5rem')};
+  height: ${props => (props.isTransition ? '2.1rem' : '2.9rem')};
   right: -3px;
   bottom: -0.6px;
   color: #585858;
   background: #dae8d9;
   border-radius: 0 2rem 2rem 0;
-  font-size: 0.9rem;
+  font-size: ${props => (props.isTransition ? '0.9rem' : '1.2rem')};
   text-align: center;
-  line-height: 38px;
+  line-height: ${props => (props.isTransition ? '38px' : '50px')};
   cursor: pointer;
   @media all and (min-width: 768px) and (max-width: 1023px) {
-    height: 2.2rem;
+    height: ${props => (props.isTransition ? '2.2rem;' : '3rem')};
     bottom: -1px;
   }
   @media all and (max-width: 767px) {
     font-size: 1rem;
     border-radius: ${props => (props.isTransition ? '2rem' : 'border-radius: 0 2rem 2rem 0;')};
-    height: 2.1rem;
-    bottom: 0px;
-    background: white;
+    height: ${props => (props.isTransition ? '2.1rem;' : '2.7rem')};
+    bottom: -1px;
+    background: ${props => (props.isTransition ? 'white' : '#dae8d9')};
+    line-height: ${props => (props.isTransition ? '38px' : '45px')};
   }
 `;
 
