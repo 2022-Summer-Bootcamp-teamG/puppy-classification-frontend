@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import defaultLogo from '../../assets/images/textLogo.svg';
 import mobileLogo from '../../assets/images/mobileLogo.svg';
-import SearchBar from './SearchBar';
-import { Default, Mobile } from './MediaQuery';
+import SearchBar from './common/SearchBar';
+import { Default, Mobile } from './common/MediaQuery';
 
 /* 
     결과페이지와 결과상세페이지 상단 헤더
