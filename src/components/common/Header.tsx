@@ -23,7 +23,7 @@ function Header() {
         </Mobile>
       </Link>
       <SearchBarContainer>
-        <SearchBar />
+        <SearchBar isTransition={true} />
       </SearchBarContainer>
     </Common>
   );

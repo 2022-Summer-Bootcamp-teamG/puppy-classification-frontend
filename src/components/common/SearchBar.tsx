@@ -5,23 +5,40 @@ import { Mobile } from './MediaQuery';
 
 /* 
     검색창
-    모바일 화면에서는 돋보기 클릭 시 검색창 펼쳐짐
+    isTransition값이 true이면 모바일 화면일 때 돋보기 클릭 시 검색창 펼쳐짐
+    flase이면 항상 돋보기가 펼쳐진 상태
 */
+interface SearchBarProps {
+  isTransition: boolean;
+}
 
-function SearchBar() {
-  return (
-    <SearchContainer>
-      <Mobile>
-        <CheckBox id="check" type="checkbox" />
-      </Mobile>
-      <SearchBox>
-        <Input type="text" placeholder="견종 이름으로 검색하기" />
-        <Label htmlFor="check">
-          <FaSearch />
-        </Label>
-      </SearchBox>
-    </SearchContainer>
-  );
+function SearchBar({ isTransition }: SearchBarProps) {
+  if (isTransition) {
+    return (
+      <SearchContainer>
+        <Mobile>
+          <CheckBox id="check" type="checkbox" />
+        </Mobile>
+        <SearchBox>
+          <Input type="text" placeholder="견종 이름으로 검색하기" isTransition={true} />
+          <Label htmlFor="check" isTransition={true}>
+            <FaSearch />
+          </Label>
+        </SearchBox>
+      </SearchContainer>
+    );
+  } else {
+    return (
+      <SearchContainer>
+        <SearchBox>
+          <Input type="text" placeholder="견종 이름으로 검색하기" isTransition={false} />
+          <Label isTransition={false}>
+            <FaSearch />
+          </Label>
+        </SearchBox>
+      </SearchContainer>
+    );
+  }
 }
 
 const SearchContainer = styled.div`
@@ -52,7 +69,7 @@ const SearchBox = styled.div`
   }
 `;
 
-const Input = styled.input`
+const Input = styled.input<SearchBarProps>`
   width: 17.638rem;
   border-radius: 2rem;
   border: none;
@@ -61,12 +78,12 @@ const Input = styled.input`
     outline: none;
   }
   @media all and (max-width: 767px) {
-    width: 0.1rem;
-    transition: all 0.3s ease;
+    width: ${props => (props.isTransition ? '0.1rem' : '20rem')};
+    transition: ${props => (props.isTransition ? 'all 0.3s ease' : 'no')};
   }
 `;
 
-const Label = styled.label`
+const Label = styled.label<SearchBarProps>`
   position: absolute;
   width: 2.1rem;
   height: 2.1rem;
@@ -85,7 +102,7 @@ const Label = styled.label`
   }
   @media all and (max-width: 767px) {
     font-size: 1rem;
-    border-radius: 2rem;
+    border-radius: ${props => (props.isTransition ? '2rem' : 'border-radius: 0 2rem 2rem 0;')};
     height: 2.1rem;
     bottom: 0px;
     background: white;
