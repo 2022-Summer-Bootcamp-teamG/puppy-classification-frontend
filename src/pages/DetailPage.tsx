@@ -6,6 +6,7 @@ import Header from '../components/Header';
 import sample1 from '../assets/images/sample1.jpg';
 import FeatureBox from '../components/FeatureBox';
 import ChartBox from '../components/common/ChartBox';
+import chartexample from '../assets/images/chartexample.svg';
 
 /*
     결과 상세 페이지
@@ -22,12 +23,12 @@ function DetailPage() {
 		<React.Fragment>
 			<Header />
 			<Common>
-				<Title>골든리트리버</Title>
+				<Title2>골든리트리버</Title2>
 				<Box>
 					<DetailImage src={sample1} />
 					<ChartBox />
 				</Box>
-				<FeatureBox content="활발하고 거칠며, 외루움을 잘 타고 어리광을 부린다. 집단 생활에 익숙해져 있어 사교적이고 낯가리지 않는다. 비글의 수명은 15년 정도이고, 주요 질병은 허리디스크, 백내장, 망막 위축 등 눈 질환에 걸리기 쉬운 견종이다." />
+				<FeatureBox content="활발하고 거칠며, 외로움을 잘 타고 어리광을 부린다. 집단 생활에 익숙해져 있어 사교적이고 낯가리지 않는다. 비글의 수명은 15년 정도이고, 주요 질병은 허리디스크, 백내장, 망막 위축 등 눈 질환에 걸리기 쉬운 견종이다." />
 			</Common>
 		</React.Fragment>
 	);
@@ -60,5 +61,15 @@ const Box = styled.div`
 	}
 `;
 
-// const;
+const Title2 = styled(Title)`
+  @media all and (min-width: 768px) and (max-width: 1023px) {
+    font-size: 1.5rem;
+  }
+  @media all and (max-width: 767px) {
+    font-size: 1.5rem;
+  }
+	`;
+
+
+
 export default DetailPage;

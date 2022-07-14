@@ -1,11 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 
+
 //  이후 차트와 연결
 interface ChartBoxProps {}
 
 function ChartBox() {
-	return <Common>역량차트</Common>;
+	return <Common>
+		<Text>역량</Text>
+	</Common>;
 }
 
 const Common = styled.div`
@@ -26,6 +29,21 @@ const Common = styled.div`
 		width: 20rem;
 		height: 15rem;
 		align-items: center;
+	}
+`;
+
+const Text = styled.div`
+	font-size: 1.5rem;
+	font-family: Pretendard;
+	color:#49a33a;
+	font-weight:1000;
+	margin: 1.5rem;
+
+	@media all and (min-width: 768px) and (max-width: 1023px) {
+		font-size: 1.2rem;
+	}
+	@media all and (max-width: 767px) {
+		font-size: 1.2rem;
 	}
 `;
 
