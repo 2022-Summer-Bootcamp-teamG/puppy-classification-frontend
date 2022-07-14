@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import defaultLogo from '../../assets/images/textLogo.svg';
-import mobileLogo from '../../assets/images/mobileLogo.svg';
+import defaultLogo from '../assets/images/textLogo.svg';
+import mobileLogo from '../assets/images/mobileLogo.svg';
 import SearchBar from './common/SearchBar';
 import { Default, Mobile } from './common/MediaQuery';
 
