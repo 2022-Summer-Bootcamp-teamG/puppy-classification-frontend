@@ -1,19 +1,23 @@
 import styled from 'styled-components';
 
 const DetailImage = styled.img`
-	width: 19rem;
-	height: 13rem;
-	flex-grow: 0;
-	margin-bottom: 0.5rem;
-	border-radius: 12px;
+	width: 30rem;
+	height: 20rem;
+	margin-top: 3rem;
+	display: flex;
+	border-radius: 5%;
 	@media all and (min-width: 768px) and (max-width: 1023px) {
-		width: 13rem;
-		height: 9rem;
+		margin-left: 4rem;
+		width: 17rem;
+		height: 13rem;
+		align-items: center;
+		justify-content: center;
 	}
 	@media all and (max-width: 767px) {
-		width: 16rem;
-		height: 11rem;
-		margin-bottom: 0.3rem;
+    width: 20rem;
+    height: 13rem;
+		justify-content: center;
+		align-items: center;
 	}
 `;
 
