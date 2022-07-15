@@ -3,6 +3,7 @@ import { Title } from '../components/common/Title';
 import styled from 'styled-components';
 import Carousel from '../components/Carousel';
 import Header from '../components/common/Header';
+import { Common } from '../components/common/Common';
 
 /* 
   결과 페이지
@@ -17,18 +18,15 @@ function ResultPage() {
   return (
     <React.Fragment>
       <Header />
-      <Common>
+      <ResultCommon>
         <Title>결과</Title>
         <Carousel />
-      </Common>
+      </ResultCommon>
     </React.Fragment>
   );
 }
 
-const Common = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+const ResultCommon = styled(Common)`
   margin-top: 7em;
   @media all and (max-width: 767px) {
     margin-top: 4em;

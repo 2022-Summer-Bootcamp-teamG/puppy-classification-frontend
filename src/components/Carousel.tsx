@@ -7,6 +7,7 @@ import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import sample1 from '../assets/images/sample1.jpg';
 import sample2 from '../assets/images/sample2.jpg';
 import sample3 from '../assets/images/sample3.jpg';
+import { Button } from './common/Button';
 import 'swiper/swiper.min.css';
 import 'swiper/components/navigation/navigation.min.css';
 
@@ -59,7 +60,7 @@ function Carousel() {
 
   return (
     <Common>
-      <Button ref={prevRef}>
+      <Button ref={prevRef} isNone={true}>
         <FaArrowLeft style={faStyle} />
       </Button>
       {swiperSetting && (
@@ -75,7 +76,7 @@ function Carousel() {
           </SwiperSlide>
         </Swiper>
       )}
-      <Button ref={nextRef}>
+      <Button ref={nextRef} isNone={true}>
         <FaArrowRight style={faStyle} />
       </Button>
     </Common>
@@ -126,15 +127,6 @@ const Common = styled.div`
         justify-content: center;
       }
     }
-  }
-`;
-
-const Button = styled.button`
-  display: flex;
-  background: none;
-  border: none;
-  @media all and (max-width: 767px) {
-    display: none;
   }
 `;
 

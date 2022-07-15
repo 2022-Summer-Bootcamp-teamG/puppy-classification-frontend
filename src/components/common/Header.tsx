@@ -5,6 +5,7 @@ import defaultLogo from '../../assets/images/textLogo.svg';
 import mobileLogo from '../../assets/images/mobileLogo.svg';
 import SearchBar from './SearchBar';
 import { Default, Mobile } from './MediaQuery';
+import { Logo } from './Logo';
 
 /* 
     결과페이지와 결과상세페이지 상단 헤더
@@ -43,19 +44,6 @@ const Common = styled.div`
     margin: 0;
     border: none;
     background: #dae8d9;
-  }
-`;
-
-const Logo = styled.img`
-  display: flex;
-  width: 8rem;
-  margin-bottom: 1rem;
-  @media all and (min-width: 768px) and (max-width: 1023px) {
-    width: 7rem;
-  }
-  @media all and (max-width: 767px) {
-    width: 2.6rem;
-    margin: 0.8rem;
   }
 `;
 
