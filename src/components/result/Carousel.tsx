@@ -4,10 +4,10 @@ import CarouselBox from './CarouselBox';
 import SwiperCore, { Navigation, Scrollbar } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
-import sample1 from '../assets/images/sample1.jpg';
-import sample2 from '../assets/images/sample2.jpg';
-import sample3 from '../assets/images/sample3.jpg';
-import { Button } from './common/Button';
+import sample1 from '../../assets/images/sample1.jpg';
+import sample2 from '../../assets/images/sample2.jpg';
+import sample3 from '../../assets/images/sample3.jpg';
+import { Button } from '../common/Button';
 import 'swiper/swiper.min.css';
 import 'swiper/components/navigation/navigation.min.css';
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Title } from '../components/common/Title';
 import styled from 'styled-components';
-import Carousel from '../components/Carousel';
+import Carousel from '../components/result/Carousel';
 import Header from '../components/common/Header';
 import { Common } from '../components/common/Common';
 

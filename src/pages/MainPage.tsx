@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import logo from '../assets/images/earthLogo.svg';
+import { Common } from '../components/common/Common';
 import SearchBar from '../components/common/SearchBar';
-import ImageUploader from '../components/ImageUploader';
+import ImageUploader from '../components/main/ImageUploader';
 
 /* 
   메인 페이지 
@@ -11,25 +12,22 @@ import ImageUploader from '../components/ImageUploader';
 
 function MainPage() {
   return (
-    <Common>
-      <Logo src={logo} />
+    <MainCommon>
+      <MainLogo src={logo} />
       <SearchBar isTransition={false} />
       <ImageUploader />
-    </Common>
+    </MainCommon>
   );
 }
 
-const Common = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+const MainCommon = styled(Common)`
   margin-top: 3.5rem;
   @media all and (max-width: 767px) {
     margin-top: 3rem;
   }
 `;
 
-const Logo = styled.img`
+const MainLogo = styled.img`
   width: 5rem;
   height: 11rem;
   margin-bottom: 2rem;
