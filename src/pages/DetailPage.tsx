@@ -2,7 +2,7 @@ import React from 'react';
 import { Title } from '../components/common/Title';
 import styled from 'styled-components';
 import { DetailImage } from '../components/common/DetailImage';
-import Header from '../components/Header';
+import Header from '../components/common/Header';
 import sample1 from '../assets/images/sample1.jpg';
 import FeatureBox from '../components/FeatureBox';
 import ChartBox from '../components/common/ChartBox';

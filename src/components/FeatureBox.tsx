@@ -29,7 +29,6 @@ const Common = styled.div`
 		height: 12rem;
 		margin: 0;
 		align-items: center;
-
 	}
 	@media all and (max-width: 767px) {
 		width: 20rem;
@@ -54,8 +53,8 @@ const Content = styled.div`
 const Text = styled.div`
 	font-size: 1.5rem;
 	font-family: Pretendard;
-	color:#3c4d39;
-	font-weight:1000;
+	color: #3c4d39;
+	font-weight: 1000;
 	margin: 0.5rem;
 	@media all and (min-width: 768px) and (max-width: 1023px) {
 		font-size: 1.2rem;
