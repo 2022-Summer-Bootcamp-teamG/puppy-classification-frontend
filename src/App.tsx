@@ -5,17 +5,17 @@ import ResultPage from './pages/ResultPage';
 import DetailPage from './pages/DetailPage';
 
 function App() {
-	return (
-		<div>
-			<BrowserRouter>
-				<Routes>
-					<Route path="/" element={<MainPage />} />
-					<Route path="/result" element={<ResultPage />} />
-					<Route path="/detail" element={<DetailPage />} />
-				</Routes>
-			</BrowserRouter>
-		</div>
-	);
+  return (
+    <div>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<MainPage />} />
+          <Route path="/result" element={<ResultPage />} />
+          <Route path="/detail" element={<DetailPage />} />
+        </Routes>
+      </BrowserRouter>
+    </div>
+  );
 }
 
 export default App;
