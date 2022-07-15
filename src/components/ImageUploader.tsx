@@ -7,8 +7,6 @@ import footprintImage from '../assets/images/footprint.svg';
     이미지 미리보기, 업로드 버튼
 */
 
-const fileTypes = ['jpg', 'jpeg', 'png', 'gif'];
-
 function ImageUploader() {
   const [fileImage, setFileImage] = useState('');
   const saveFileImage = (event: React.ChangeEvent<HTMLInputElement>) => {
