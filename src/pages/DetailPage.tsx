@@ -37,6 +37,7 @@ function DetailPage() {
 
 const DetailCommon = styled(Common)`
   margin-top: 3rem;
+  margin-bottom: 2rem;
   @media all and (min-width: 768px) and (max-width: 1023px) {
     font-size: 0.9rem;
   }

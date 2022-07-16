@@ -17,7 +17,7 @@ function FeatureBox({ content }: FeatureBoxProps) {
 const Common = styled.div`
   width: 70rem;
   height: 15rem;
-  margin: 0rem;
+  margin-bottom: 2rem;
   padding: 1rem;
   border-radius: 10px;
   align-items: center;
