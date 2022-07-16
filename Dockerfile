@@ -4,7 +4,7 @@ FROM node:14-slim
 # 도커 컨테이너 내부의 작업 디렉토리 결정
 WORKDIR /usr/src/app
 
-# 외부 패키지 설치를 위해 package.json과 yarn.lock 파일 복사
+# 외부 패키지 설치를 위해 package.json과yarn.lock 파일 복사
 COPY package.json .
 COPY yarn.lock .
 

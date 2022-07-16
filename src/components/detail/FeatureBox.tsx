@@ -27,14 +27,10 @@ const Common = styled.div`
   @media all and (min-width: 768px) and (max-width: 1023px) {
     width: 45rem;
     height: 12rem;
-    margin: 0;
-    align-items: center;
   }
   @media all and (max-width: 767px) {
     width: 20rem;
     height: 15rem;
-    margin-top: 0rem;
-    align-items: center;
   }
 `;
 
