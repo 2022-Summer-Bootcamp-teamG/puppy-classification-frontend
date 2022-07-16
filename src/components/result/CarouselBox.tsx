@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Image } from './common/Image';
+import { Image } from './ResultImage';
 
 /* 
   캐러샐 내부 개별 콘텐츠
