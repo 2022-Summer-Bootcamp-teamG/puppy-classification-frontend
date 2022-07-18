@@ -23,7 +23,6 @@ const Common = styled.div`
   align-items: center;
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
   background-color: #f1f1f1;
-
   @media all and (min-width: 768px) and (max-width: 1023px) {
     width: 45rem;
     height: 12rem;
@@ -35,14 +34,14 @@ const Common = styled.div`
 `;
 
 const Content = styled.div`
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   margin: 2rem;
   font-family: Pretendard;
   align-items: center;
   justify-content: center;
   font-weight: 400;
   @media all and (max-width: 767px) {
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
 `;
 
@@ -56,7 +55,7 @@ const Text = styled.div`
     font-size: 1.2rem;
   }
   @media all and (max-width: 767px) {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
   }
 `;
 export default FeatureBox;
