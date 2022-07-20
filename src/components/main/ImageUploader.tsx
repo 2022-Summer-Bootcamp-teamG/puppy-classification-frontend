@@ -16,15 +16,18 @@ import { Dropzone } from './Dropzone';
 function ImageUploader() {
   const [fileImage, setFileImage] = useState('');
   const [isUpload, setIsUpload] = useState(false);
+  const [isDrag, setIsDrag] = useState(false);
   const uploadBoxRef = useRef<any>(null);
   const saveFileImage = (event: React.ChangeEvent<HTMLInputElement>) => {
     // @ts-ignore
     setFileImage(URL.createObjectURL(event.target.files[0]));
     setIsUpload(true);
+    setIsDrag(false);
   };
   const cancelUpload = () => {
     setFileImage('');
     setIsUpload(false);
+    setIsDrag(false);
   };
   useEffect(() => {
     const changeHandler = (file: File) => {
@@ -40,12 +43,18 @@ function ImageUploader() {
     const dragOverHandler = (event: React.DragEvent<HTMLDivElement>) => {
       event.preventDefault();
       event.stopPropagation();
+      setIsDrag(true);
+    };
+    const dragLeaveHandler = () => {
+      setIsDrag(false);
     };
     uploadBoxRef.current.addEventListener('drop', dropHandler);
     uploadBoxRef.current.addEventListener('dragover', dragOverHandler);
+    uploadBoxRef.current.addEventListener('dragleave', dragLeaveHandler);
     return () => {
       uploadBoxRef.current.removeEventListener('drop', dropHandler);
       uploadBoxRef.current.removeEventListener('dragover', dragOverHandler);
+      uploadBoxRef.current.removeEventListener('dragleave', dragLeaveHandler);
     };
   }, []);
   return (
@@ -59,7 +68,7 @@ function ImageUploader() {
         <Icon isUpload={isUpload} onClick={cancelUpload}>
           <FaTimes />
         </Icon>
-        <Dropzone isUpload={isUpload} htmlFor="image" ref={uploadBoxRef}></Dropzone>
+        <Dropzone isUpload={isUpload} isDrag={isDrag} htmlFor="image" ref={uploadBoxRef}></Dropzone>
       </div>
       <input
         id="image"
