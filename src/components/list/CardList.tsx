@@ -13,8 +13,6 @@ const CardList = () => {
       <CardItem img={sample1} breedName="웰시코기" />
       <CardItem img={sample1} breedName="웰시코기" />
       <CardItem img={sample1} breedName="웰시코기" />
-      <CardItem img={sample1} breedName="웰시코기" />
-      <CardItem img={sample1} breedName="웰시코기" />
     </Common>
   );
 };
@@ -22,9 +20,10 @@ const CardList = () => {
 const Common = styled.div`
   display: flex;
   box-sizing: border-box;
-  padding-bottom: 3rem;
-  margin: 3rem;
+  justify-content: center;
   align-items: center;
-  flex-direction: column;
+  padding-bottom: 3rem;
+  margin: 3rem auto;
+  flex-direction: row;
 `;
 export default CardList;

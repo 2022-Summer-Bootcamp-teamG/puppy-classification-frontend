@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { Image } from '../result/ResultImage';
+import { ItemImage } from './ItemImage';
 
 interface CardItemProps {
   img: string;
@@ -12,7 +12,7 @@ function CardItem({ img, breedName }: CardItemProps) {
   return (
     <Common>
       <Link to="/detail/:id">
-        <Image src={img} alt={breedName} />
+        <ItemImage src={img} alt={breedName} />
       </Link>
       <BreedName>{breedName}</BreedName>
     </Common>
@@ -25,10 +25,10 @@ const Common = styled.div`
 `;
 
 const BreedName = styled.div`
-  margin-left: 0.3rem;
-  font-size: 1.75rem;
+  margin: auto;
+  font-size: 1.2rem;
   font-family: Pretendard;
-  font-weight: 700;
+  font-weight: 400;
   color: #000;
   @media all and (min-width: 768px) and (max-width: 1023px) {
     font-size: 1.5rem;
