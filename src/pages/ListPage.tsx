@@ -13,9 +13,6 @@ const ListPage = () => {
       <Header />
       <Categories />
       <CardList />
-      <CardList />
-      <CardList />
-      <CardList />
     </React.Fragment>
   );
 };

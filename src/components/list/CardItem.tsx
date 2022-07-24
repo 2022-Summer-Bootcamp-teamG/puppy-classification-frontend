@@ -31,7 +31,7 @@ const BreedName = styled.div`
   font-weight: 400;
   color: #000;
   @media all and (min-width: 768px) and (max-width: 1023px) {
-    font-size: 1.5rem;
+    font-size: 1rem;
   }
   @media all and (max-width: 767px) {
     font-size: 1.3rem;

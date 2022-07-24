@@ -66,6 +66,8 @@ const Category = styled.div`
   &:hover {
     color: green;
   }
+  @media all and (max-width: 767px) {
+  }
 `;
 
 export default Categories;

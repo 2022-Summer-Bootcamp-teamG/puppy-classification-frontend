@@ -7,9 +7,10 @@ const ItemImage = styled.img`
   margin: 1rem;
   border-radius: 5%;
   @media all and (min-width: 768px) and (max-width: 1023px) {
-    width: 11rem;
+    width: 12rem;
   }
   @media all and (max-width: 767px) {
+    width: 23rem;
   }
 `;
 
