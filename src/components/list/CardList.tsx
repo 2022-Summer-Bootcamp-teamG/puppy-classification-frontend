@@ -6,7 +6,11 @@ import sample1 from '../../assets/images/sample1.jpg';
  * Todo: axios, useEffect, useState
  * Todo: map
  */
-const CardList = () => {
+type Props = {
+  category: string;
+};
+
+const CardList = ({ category }: Props) => {
   return (
     <Common>
       <CardItem img={sample1} breedName="웰시코기" />

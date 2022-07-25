@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 
 /**
- * Todo : db에 견종 분류(large, medium, small) 추가
  * Todo: category 상태 useState로 관리
  * Todo: Category 선택 시 색 유지
  */
@@ -25,16 +24,6 @@ const categories = [
     text: '소형견',
   },
 ];
-
-const Categories = () => {
-  return (
-    <CategoryListBlock>
-      {categories.map(c => (
-        <Category key={c.name}>{c.text}</Category>
-      ))}
-    </CategoryListBlock>
-  );
-};
 
 const CategoryListBlock = styled.div`
   display: flex;
@@ -69,5 +58,20 @@ const Category = styled.div`
   @media all and (max-width: 767px) {
   }
 `;
+type Props = {
+  category: string;
+  onSelect: any;
+};
+const Categories = ({ category, onSelect }: Props) => {
+  return (
+    <CategoryListBlock>
+      {categories.map(c => (
+        <Category key={c.name} onClick={() => onSelect(c.name)}>
+          {c.text}
+        </Category>
+      ))}
+    </CategoryListBlock>
+  );
+};
 
 export default Categories;

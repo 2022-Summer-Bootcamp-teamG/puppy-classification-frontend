@@ -5,7 +5,7 @@ import CardList from '../components/list/CardList';
 
 function ListPage() {
   const [category, setCategory] = useState('all');
-  const onSelect = useCallback(category => setCategory(category), []);
+  const onSelect = useCallback((category: string) => setCategory(category), []);
 
   return (
     <React.Fragment>
