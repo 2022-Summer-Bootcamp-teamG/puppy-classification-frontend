@@ -25,16 +25,18 @@ const Common = styled.div`
 `;
 
 const BreedName = styled.div`
+  margin-top: 1rem;
   margin: auto;
   font-size: 1.2rem;
   font-family: Pretendard;
-  font-weight: 400;
-  color: #000;
+  font-weight: 500;
+  color: #002411;
   @media all and (min-width: 768px) and (max-width: 1023px) {
     font-size: 1rem;
   }
   @media all and (max-width: 767px) {
-    font-size: 1.3rem;
+    margin-top: 0.4rem;
+    font-size: 1.2rem;
   }
 `;
 
