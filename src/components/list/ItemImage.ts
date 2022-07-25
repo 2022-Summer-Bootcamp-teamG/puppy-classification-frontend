@@ -10,7 +10,9 @@ const ItemImage = styled.img`
     width: 12rem;
   }
   @media all and (max-width: 767px) {
-    width: 23rem;
+    width: 18rem;
+    height: 12rem;
+    margin-bottom: 0.3rem;
   }
 `;
 
