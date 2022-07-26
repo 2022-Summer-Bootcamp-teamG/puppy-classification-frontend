@@ -18,9 +18,62 @@ ChartJS.register(RadialLinearScale, PointElement, LineElement, Filler, Tooltip, 
   이후 차트와 연결
 */
 
-// interface ChartBoxProps {}
+interface ChartBoxProps {
+  easyToTrain: number;
+  highEnergy: number;
+  intelligence: number;
+  kidFriendly: number;
+  lowBarking: number;
+}
 
-function ChartBox() {
+function ChartBox({
+  easyToTrain,
+  highEnergy,
+  intelligence,
+  kidFriendly,
+  lowBarking,
+}: ChartBoxProps) {
+  console.log(intelligence);
+  const data = {
+    labels: ['아이 친화력', '지능', '에너지', '훈련 난이도', '짖는 정도'],
+    datasets: [
+      {
+        label: '# of Votes',
+        data: [
+          `${kidFriendly}`,
+          `${intelligence}`,
+          `${highEnergy}`,
+          `${easyToTrain}`,
+          `${lowBarking}`,
+        ],
+        backgroundColor: 'rgba(73, 163, 58, 0.2)',
+        borderColor: '#49a33a',
+        borderWidth: 1,
+      },
+    ],
+  };
+  const options = {
+    plugins: {
+      legend: {
+        display: false,
+      },
+    },
+    scales: {
+      r: {
+        ticks: {
+          stepSize: 1,
+          min: 0,
+          max: 5,
+          suggestedMax: 5,
+          suggestedMin: 0,
+          showLabelBackdrop: false,
+        },
+        grid: {
+          color: 'rgb(63,63,63,0.2)',
+        },
+      },
+    },
+  };
   return (
     <Common>
       <Text>역량</Text>
@@ -30,40 +83,6 @@ function ChartBox() {
     </Common>
   );
 }
-
-const data = {
-  labels: ['아이 친화력', '지능', '에너지', '훈련 난이도', '짖는 정도'],
-  datasets: [
-    {
-      label: '# of Votes',
-      data: [2, 0, 3, 5, 2],
-      backgroundColor: 'rgba(73, 163, 58, 0.2)',
-      borderColor: '#49a33a',
-      borderWidth: 1,
-    },
-  ],
-};
-
-const options = {
-  plugins: {
-    legend: {
-      display: false,
-    },
-  },
-  scales: {
-    r: {
-      ticks: {
-        stepSize: 1,
-        suggestedMin: 0,
-        max: 5,
-        showLabelBackdrop: false,
-      },
-      grid: {
-        color: 'rgb(63,63,63,0.2)',
-      },
-    },
-  },
-};
 
 const Common = styled.div`
   width: 30rem;

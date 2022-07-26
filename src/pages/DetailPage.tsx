@@ -17,20 +17,29 @@ import { customAxios } from '../components/common/CustomAxios';
     (DB내 검색어 자동완성 기능) 예정
     견종 크기 추가 필요
 */
-
-// interface DetailPageProps {
-//   breedId: number;
-// }
+interface Response {
+  data: Data;
+}
+interface Data {
+  id: number;
+  size: number;
+  name: string;
+  feature: string;
+  img_url: string;
+  easyToTrain: number;
+  highEnergy: number;
+  intelligence: number;
+  kidFriendly: number;
+  lowBarking: number;
+}
 
 function DetailPage() {
   let { id } = useParams();
-  const [data, setData] = useState([]);
+  const [data, setData] = useState<Data>();
   const getData = async () => {
-    try {
-      const { data } = await customAxios.get(`/puppies/${id}`);
-    } catch (error) {
-      console.log(error);
-    }
+    let res = await customAxios.get<Response>(`/puppies/${id}`);
+    let { data } = res.data;
+    console.log(res.data.data.intelligence);
     setData(data);
   };
   useEffect(() => {
@@ -40,12 +49,18 @@ function DetailPage() {
     <React.Fragment>
       <Header />
       <DetailCommon>
-        <Title>{data}</Title>
+        <Title>{data?.name}</Title>
         <ItemBox>
-          <DetailImage src={sample1} />
-          <ChartBox />
+          <DetailImage src={data?.img_url} />
+          <ChartBox
+            easyToTrain={data?.easyToTrain}
+            highEnergy={data?.highEnergy}
+            intelligence={data?.intelligence}
+            kidFriendly={data?.kidFriendly}
+            lowBarking={data?.lowBarking}
+          />
         </ItemBox>
-        <FeatureBox content="ㄴㅇㄹㄴㅇㄹ" />
+        <FeatureBox content={data?.feature} />
       </DetailCommon>
     </React.Fragment>
   );
