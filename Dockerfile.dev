@@ -1,3 +1,5 @@
+# 배포용 이미지 => 
+
 # node 버전 선택
 FROM node:14-slim
 
