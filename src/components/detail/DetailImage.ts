@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const DetailImage = styled.img`
   width: 30rem;
-  height: 20rem;
+  height: 25rem;
   display: flex;
   border-radius: 5%;
   @media all and (min-width: 768px) and (max-width: 1023px) {
@@ -11,7 +11,7 @@ const DetailImage = styled.img`
   }
   @media all and (max-width: 767px) {
     width: 20rem;
-    height: 13rem;
+    height: 15rem;
     margin-top: 2rem;
   }
 `;

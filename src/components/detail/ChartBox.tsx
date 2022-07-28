@@ -60,12 +60,11 @@ function ChartBox({
     },
     scales: {
       r: {
+        suggestedMin: 0,
+        suggestedMax: 5,
         ticks: {
           stepSize: 1,
-          min: 0,
-          max: 5,
-          suggestedMax: 5,
-          suggestedMin: 0,
+          beginAtZero: true,
           showLabelBackdrop: false,
         },
         grid: {
