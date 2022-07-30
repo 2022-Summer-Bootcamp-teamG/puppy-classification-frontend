@@ -68,7 +68,7 @@ function ImageUploader() {
         <Icon isUpload={isUpload} onClick={cancelUpload}>
           <FaTimes />
         </Icon>
-        <Dropzone isUpload={isUpload} isDrag={isDrag} htmlFor="image" ref={uploadBoxRef}></Dropzone>
+        <Dropzone isUpload={isUpload} isDrag={isDrag} htmlFor="image" ref={uploadBoxRef} />
       </div>
       <input
         id="image"

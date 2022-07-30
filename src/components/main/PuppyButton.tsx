@@ -6,12 +6,10 @@ import { FaArrowRight } from 'react-icons/fa';
 
 function PuppyButton() {
   return (
-    <React.Fragment>
-      <Button>
-        <Text>견종 전체 보러가기</Text>
-        <FaArrowRight style={faStyle} />
-      </Button>
-    </React.Fragment>
+    <Button>
+      <Text>견종 전체 보러가기</Text>
+      <FaArrowRight style={faStyle} />
+    </Button>
   );
 }
 

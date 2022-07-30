@@ -3,7 +3,6 @@ import { Title } from '../components/common/Title';
 import styled from 'styled-components';
 import { DetailImage } from '../components/detail/DetailImage';
 import Header from '../components/common/Header';
-import sample1 from '../assets/images/sample1.jpg';
 import FeatureBox from '../components/detail/FeatureBox';
 import ChartBox from '../components/detail/ChartBox';
 import ItemBox from '../components/detail/ItemBox';
@@ -39,12 +38,11 @@ function DetailPage() {
   const getData = async () => {
     let res = await customAxios.get<Response>(`/puppies/${id}`);
     let { data } = res.data;
-    console.log(res.data.data.intelligence);
     setData(data);
   };
   useEffect(() => {
     getData();
-  }, []);
+  });
   return (
     <React.Fragment>
       <Header />

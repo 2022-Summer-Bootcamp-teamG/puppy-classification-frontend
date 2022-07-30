@@ -33,7 +33,6 @@ function ChartBox({
   kidFriendly,
   lowBarking,
 }: ChartBoxProps) {
-  console.log(intelligence);
   const data = {
     labels: ['아이 친화력', '지능', '에너지', '훈련 난이도', '짖는 정도'],
     datasets: [
