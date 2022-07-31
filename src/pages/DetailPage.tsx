@@ -42,7 +42,7 @@ function DetailPage() {
   };
   useEffect(() => {
     getData();
-  });
+  }, []);
   return (
     <React.Fragment>
       <Header />

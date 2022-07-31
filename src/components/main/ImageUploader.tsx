@@ -7,20 +7,48 @@ import { LabelButton } from './LabelButton';
 import { MainImage } from './MainImage';
 import { FaTimes } from 'react-icons/fa';
 import { Dropzone } from './Dropzone';
+import { customAxios } from '../common/CustomAxios';
+import { AxiosResponse } from 'axios';
 
 /* 
     메인페이지 이미지 업로드 창
     이미지 미리보기, 업로드 버튼, 이미지 업로드 시 취소 버튼
 */
+interface Body {
+  breed_id: number;
+  breed: string;
+  img: string;
+  precent: number;
+}
 
 function ImageUploader() {
   const [fileImage, setFileImage] = useState('');
+  const [file, setFile] = useState<File | null>(null);
   const [isUpload, setIsUpload] = useState(false);
   const [isDrag, setIsDrag] = useState(false);
   const uploadBoxRef = useRef<any>(null);
+  const [data, setData] = useState<AxiosResponse | null>(null);
+  const [loading, setLoading] = useState(true);
+  const getData = () => {
+    if (!file) {
+      alert('이미지를 업로드해주세요');
+    } else {
+      setLoading(true);
+      customAxios
+        .post<Body>('/predict', {
+          image: file,
+        })
+        .then(res => {
+          setData(res);
+          console.log(res);
+        });
+      setLoading(false);
+    }
+  };
   const saveFileImage = (event: React.ChangeEvent<HTMLInputElement>) => {
     // @ts-ignore
     setFileImage(URL.createObjectURL(event.target.files[0]));
+    setFile(event.target.files[0]);
     setIsUpload(true);
     setIsDrag(false);
   };
@@ -32,6 +60,7 @@ function ImageUploader() {
   useEffect(() => {
     const changeHandler = (file: File) => {
       setFileImage(URL.createObjectURL(file));
+      setFile(file);
       setIsUpload(true);
     };
     const dropHandler = (event: React.DragEvent<HTMLDivElement>) => {
@@ -78,7 +107,9 @@ function ImageUploader() {
         onChange={saveFileImage}
         style={{ display: 'none' }}
       />
-      <LabelButton htmlFor="image-search">검색</LabelButton>
+      <LabelButton htmlFor="image-search" onClick={getData}>
+        검색
+      </LabelButton>
       {/* 이미지 비었을 시 alert 추가 예정 */}
       <input id="image-search" name="image-search" type="submit" style={{ display: 'none' }} />
     </UploaderCommon>
