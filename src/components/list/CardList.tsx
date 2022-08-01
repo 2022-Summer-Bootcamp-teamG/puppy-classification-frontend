@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { customAxios } from '../common/CustomAxios';
 import { CardItem } from './CardItem';
 import styled from 'styled-components';
@@ -19,7 +19,7 @@ function CardList() {
   const getData = async () => {
     let res = await customAxios.get<Response>(`/puppies`);
     let { data } = res.data;
-    console.log(data);
+    // console.log(data);
     setData(data);
   };
   useEffect(() => {

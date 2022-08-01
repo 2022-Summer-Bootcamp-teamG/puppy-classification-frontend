@@ -6,28 +6,38 @@ import styled from 'styled-components';
  * Todo: Category 선택 시 색 유지
  */
 
-const categories = [
-  {
-    id: 0,
-    text: '전체',
-    url: '/puppies',
-  },
-  {
-    id: 1,
-    text: '대형견',
-    url: '/puppies?size=1',
-  },
-  {
-    id: 2,
-    text: '중형견',
-    url: '/puppies?size=2',
-  },
-  {
-    id: 3,
-    text: '소형견',
-    url: '/puppie?size=3',
-  },
-];
+// const categories = [
+//   {
+//     size: 0,
+//     text: '전체',
+//     url: '/puppies',
+//   },
+//   {
+//     size: 1,
+//     text: '소형견',
+//     url: '/puppies?size=1',
+//   },
+//   {
+//     size: 2,
+//     text: '중형견',
+//     url: '/puppies?size=2',
+//   },
+//   {
+//     size: 3,
+//     text: '대형견',
+//     url: '/puppie?size=3',
+//   },
+//   {
+//     size: 4,
+//     text: '대형견',
+//     url: '/puppies?size=4',
+//   },
+//   {
+//     size: 5,
+//     text: '대형견',
+//     url: '/puppies?size=5',
+//   },
+// ];
 
 const CategoryListBlock = styled.div`
   display: flex;
@@ -63,18 +73,19 @@ const Category = styled.div`
   @media all and (max-width: 767px) {
   }
 `;
-type Props = {
-  category: string;
-  onSelect: any;
-};
-const Categories = ({ category, onSelect }: Props) => {
+
+const Categories = () => {
   return (
     <CategoryListBlock>
-      {categories.map(c => (
-        <Category key={c.id} onClick={() => onSelect(c.id)}>
+      {/* {categories.map(c => (
+        <Category key={c.text} onClick={() => onSelect(c.text)}>
           {c.text}
         </Category>
-      ))}
+      ))} */}
+      <Category>전체</Category>
+      <Category>소형견</Category>
+      <Category>중형견</Category>
+      <Category>대형견</Category>
     </CategoryListBlock>
   );
 };

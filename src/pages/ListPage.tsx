@@ -6,13 +6,13 @@ import CardList from '../components/list/CardList';
 import { Common } from '../components/common/Common';
 
 function ListPage() {
-  const [category, setCategory] = useState('all');
+  const [category, setCategory] = useState('');
   const onSelect = useCallback((category: string) => setCategory(category), []);
 
   return (
     <React.Fragment>
       <Header />
-      <Categories category={category} onSelect={onSelect} />
+      <Categories />
       <ListCommon>
         <Title>견종에 대해 찾아보세요!</Title>
         <p>100여종이 넘는 반려견 품종의 고유한 특징을 그래프로 확인해 보세요.</p>
