@@ -11,7 +11,7 @@ interface CardProps {
 export const CardItem: React.FC<CardProps> = ({ data }) => {
   return (
     <Common>
-      <Link to="/ detail/$`{data.id}`">
+      <Link to={`/detail/${data.id}`}>
         <ItemImage src={data.img_url} alt={data.name} />
       </Link>
       <BreedName>{data.name}</BreedName>
