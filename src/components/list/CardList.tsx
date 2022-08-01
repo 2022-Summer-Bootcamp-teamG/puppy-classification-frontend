@@ -13,18 +13,20 @@ export interface Data {
   img_url: string;
 }
 
-function CardList() {
+function CardList({ size }: any) {
   const [data, setData] = useState<Data[]>();
+  // page처음 null
+  const [page, setPage] = useState(1);
 
-  const getData = async () => {
-    let res = await customAxios.get<Response>(`/puppies`);
+  const getData = async (size: any, page: number) => {
+    let res = await customAxios.get<Response>(`/puppies?size=${size}&page=${page}`);
     let { data } = res.data;
-    // console.log(data);
     setData(data);
+    console.log(size);
   };
   useEffect(() => {
-    getData();
-  }, []);
+    getData([size], page);
+  }, [size, page]);
 
   return <Common>{data && data.map(data => <CardItem key={data.id} data={data} />)}</Common>;
 }

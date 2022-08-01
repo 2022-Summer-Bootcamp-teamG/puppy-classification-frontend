@@ -1,43 +1,28 @@
 import React from 'react';
 import styled from 'styled-components';
-
 /**
  * Todo: category 상태 useState로 관리
  * Todo: Category 선택 시 색 유지
  */
 
-// const categories = [
-//   {
-//     size: 0,
-//     text: '전체',
-//     url: '/puppies',
-//   },
-//   {
-//     size: 1,
-//     text: '소형견',
-//     url: '/puppies?size=1',
-//   },
-//   {
-//     size: 2,
-//     text: '중형견',
-//     url: '/puppies?size=2',
-//   },
-//   {
-//     size: 3,
-//     text: '대형견',
-//     url: '/puppie?size=3',
-//   },
-//   {
-//     size: 4,
-//     text: '대형견',
-//     url: '/puppies?size=4',
-//   },
-//   {
-//     size: 5,
-//     text: '대형견',
-//     url: '/puppies?size=5',
-//   },
-// ];
+const categories = [
+  {
+    size: 0,
+    text: '전체',
+  },
+  {
+    size: 1,
+    text: '소형견',
+  },
+  {
+    size: 2,
+    text: '중형견',
+  },
+  {
+    size: 3,
+    text: '대형견',
+  },
+];
 
 const CategoryListBlock = styled.div`
   display: flex;
@@ -74,18 +59,14 @@ const Category = styled.div`
   }
 `;
 
-const Categories = () => {
+const Categories = ({ onSelect, size }: any) => {
   return (
     <CategoryListBlock>
-      {/* {categories.map(c => (
-        <Category key={c.text} onClick={() => onSelect(c.text)}>
+      {categories.map(c => (
+        <Category key={c.text} onClick={() => onSelect(c.size)}>
           {c.text}
         </Category>
-      ))} */}
-      <Category>전체</Category>
-      <Category>소형견</Category>
-      <Category>중형견</Category>
-      <Category>대형견</Category>
+      ))}
     </CategoryListBlock>
   );
 };
