@@ -8,20 +8,24 @@ import styled from 'styled-components';
 
 const categories = [
   {
-    name: 'all',
+    id: 0,
     text: '전체',
+    url: '/puppies',
   },
   {
-    name: 'large',
+    id: 1,
     text: '대형견',
+    url: '/puppies?size=1',
   },
   {
-    name: 'medium',
+    id: 2,
     text: '중형견',
+    url: '/puppies?size=2',
   },
   {
-    name: 'small',
+    id: 3,
     text: '소형견',
+    url: '/puppie?size=3',
   },
 ];
 
@@ -67,7 +71,7 @@ const Categories = ({ category, onSelect }: Props) => {
   return (
     <CategoryListBlock>
       {categories.map(c => (
-        <Category key={c.name} onClick={() => onSelect(c.name)}>
+        <Category key={c.id} onClick={() => onSelect(c.id)}>
           {c.text}
         </Category>
       ))}

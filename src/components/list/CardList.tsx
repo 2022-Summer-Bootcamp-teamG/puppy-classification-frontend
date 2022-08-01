@@ -1,39 +1,33 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { customAxios } from '../common/CustomAxios';
+import { CardItem } from './CardItem';
 import styled from 'styled-components';
-import CardItem from './CardItem';
-import sample1 from '../../assets/images/sample1.jpg';
-/**
- * Todo: axios, useEffect, useState
- * Todo: map
- */
-type Props = {
-  category: string;
-};
 
-const CardList = ({ category }: Props) => {
-  return (
-    <Common>
-      <CardItem img={sample1} breedName="웰시코기" />
-      <CardItem img={sample1} breedName="웰시코기" />
-      <CardItem img={sample1} breedName="웰시코기" />
-      <CardItem img={sample1} breedName="웰시코기" />
-      <CardItem img={sample1} breedName="웰시코기" />
-      <CardItem img={sample1} breedName="웰시코기" />
-      <CardItem img={sample1} breedName="웰시코기" />
-      <CardItem img={sample1} breedName="웰시코기" />
-      <CardItem img={sample1} breedName="웰시코기" />
-      <CardItem img={sample1} breedName="웰시코기" />
-      <CardItem img={sample1} breedName="웰시코기" />
-      <CardItem img={sample1} breedName="웰시코기" />
-      <CardItem img={sample1} breedName="웰시코기" />
-      <CardItem img={sample1} breedName="웰시코기" />
-      <CardItem img={sample1} breedName="웰시코기" />
-      <CardItem img={sample1} breedName="웰시코기" />
-      <CardItem img={sample1} breedName="웰시코기" />
-    </Common>
-  );
-};
+interface Response {
+  data: Data[];
+}
+export interface Data {
+  id: number;
+  size: number;
+  name: string;
+  img_url: string;
+}
 
+function CardList() {
+  const [data, setData] = useState<Data[]>();
+
+  const getData = async () => {
+    let res = await customAxios.get<Response>(`/puppies`);
+    let { data } = res.data;
+    console.log(data);
+    setData(data);
+  };
+  useEffect(() => {
+    getData();
+  }, []);
+
+  return <Common>{data && data.map(data => <CardItem key={data.id} data={data} />)}</Common>;
+}
 const Common = styled.div`
   display: flex;
   flex-wrap: wrap;

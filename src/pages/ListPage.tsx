@@ -17,7 +17,7 @@ function ListPage() {
         <Title>견종에 대해 찾아보세요!</Title>
         <p>100여종이 넘는 반려견 품종의 고유한 특징을 그래프로 확인해 보세요.</p>
       </ListCommon>
-      <CardList category={category} />
+      <CardList />
     </React.Fragment>
   );
 }

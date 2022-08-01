@@ -2,22 +2,22 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { ItemImage } from './ItemImage';
+import { Data } from './CardList';
 
-interface CardItemProps {
-  img: string;
-  breedName: string;
+interface CardProps {
+  data: Data;
 }
 
-function CardItem({ img, breedName }: CardItemProps) {
+export const CardItem: React.FC<CardProps> = ({ data }) => {
   return (
     <Common>
-      <Link to="/detail/:id">
-        <ItemImage src={img} alt={breedName} />
+      <Link to="/ detail/:id">
+        <ItemImage src={data.img_url} alt={data.name} />
       </Link>
-      <BreedName>{breedName}</BreedName>
+      <BreedName>{data.name}</BreedName>
     </Common>
   );
-}
+};
 
 const Common = styled.div`
   display: flex;

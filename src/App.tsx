@@ -5,6 +5,8 @@ import ResultPage from './pages/ResultPage';
 import DetailPage from './pages/DetailPage';
 import NotFound from './components/common/NotFound';
 import ListPage from './pages/ListPage';
+// 임시적으로 cardlist
+import CardList from './components/list/CardList';
 
 function App() {
   return (
@@ -16,6 +18,7 @@ function App() {
           <Route path="/detail/:id" element={<DetailPage />} />
           <Route element={<NotFound />} />
           <Route path="/list" element={<ListPage />} />
+          <Route path="/test" element={<CardList />} />
         </Routes>
       </BrowserRouter>
     </div>
