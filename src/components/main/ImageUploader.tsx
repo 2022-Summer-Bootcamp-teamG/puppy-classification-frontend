@@ -33,7 +33,6 @@ function ImageUploader() {
     setFile(event.target.files[0]);
     setIsUpload(true);
     setIsDrag(false);
-    console.log(file);
   };
   const cancelUpload = () => {
     setFileImage('');

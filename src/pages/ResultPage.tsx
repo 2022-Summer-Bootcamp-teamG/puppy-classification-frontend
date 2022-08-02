@@ -11,7 +11,6 @@ import { useLocation } from 'react-router-dom';
 
 /* 
   결과 페이지
-  결과 데이터 API 연동 & 이미지 캐러셀
 */
 
 type LocationState = {
@@ -33,24 +32,37 @@ function ResultPage() {
     setLoading(true);
     const fileData = new FormData();
     fileData.append('file', file.file);
-    customAxios.post<Props[]>('/predict', fileData).then(res => {
-      setData(res.data);
-      setLoading(false);
-    });
+    customAxios
+      .post<Props[]>('/predict', fileData)
+      .then(res => {
+        setData(res.data);
+        setLoading(false);
+      })
+      .catch(err => {
+        alert('문제가 발생했습니다. 다시 시도해주세요.');
+        window.location.href = '/';
+      });
   };
   useEffect(() => {
     getData();
   }, []);
-  return (
-    <React.Fragment>
-      {loading ? <Loading /> : null}
-      <Header />
-      <ResultCommon>
-        <Title>결과</Title>
-        <Carousel props={data} />
-      </ResultCommon>
-    </React.Fragment>
-  );
+  if (loading) {
+    return (
+      <>
+        <Loading />
+      </>
+    );
+  } else {
+    return (
+      <>
+        <Header />
+        <ResultCommon>
+          <Title>결과</Title>
+          <Carousel props={data} />
+        </ResultCommon>
+      </>
+    );
+  }
 }
 
 const ResultCommon = styled(Common)`

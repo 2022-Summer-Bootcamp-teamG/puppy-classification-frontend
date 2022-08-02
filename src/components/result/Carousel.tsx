@@ -8,7 +8,7 @@ import { Button } from '../common/Button';
 import 'swiper/swiper.min.css';
 import 'swiper/components/navigation/navigation.min.css';
 import { Link } from 'react-router-dom';
-
+import { sample1 } from '../../assets/images/sample1.jpg';
 /*
     이미지 캐러셀 컨테이너
 */
@@ -24,8 +24,11 @@ function Carousel({ props }: { props: Props[] }) {
   const prevRef = useRef<HTMLButtonElement>(null);
   const nextRef = useRef<HTMLButtonElement>(null);
   const [swiperSetting, setSwiperSetting] = useState<Swiper | null>(null);
-  console.log(props);
+  const [zero, setZero] = useState(false);
   useEffect(() => {
+    if (props.length === 0) {
+      setZero(true);
+    }
     if (!swiperSetting) {
       setSwiperSetting({
         spaceBetween: 23,
@@ -60,7 +63,6 @@ function Carousel({ props }: { props: Props[] }) {
       });
     }
   }, [swiperSetting]);
-
   return (
     <Common>
       <Button ref={prevRef} isNone={true}>
@@ -68,12 +70,13 @@ function Carousel({ props }: { props: Props[] }) {
       </Button>
       {swiperSetting && (
         <Swiper {...swiperSetting}>
+          {zero ? <Zero>해당하는 견종을 찾을 수 없습니다.</Zero> : null}
           {props &&
-            props.map(prop => (
-              <SwiperSlide>
+            props.map((prop, index) => (
+              <SwiperSlide key={index}>
                 <Link to={`/detail/${prop.breed_id}`} style={{ textDecoration: 'none' }}>
                   <CarouselBox
-                    key={prop.breed_id}
+                    count={index + 1}
                     img={prop.img}
                     breedName={prop.breed}
                     percent={prop.percent}
@@ -130,6 +133,7 @@ const Common = styled.div`
         margin: 0;
       }
       &-slide {
+        height: 15rem !important;
         display: flex;
         justify-content: center;
       }
@@ -137,6 +141,10 @@ const Common = styled.div`
   }
 `;
 
+const Zero = styled.div`
+  display: flex;
+  justify-content: center;
+`;
 const faStyle = {
   width: '2rem',
   height: '1.5rem',
