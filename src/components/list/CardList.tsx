@@ -34,10 +34,10 @@ function CardList({ size }: any) {
 
   return (
     <Common>
-      {data && data.map(data => <CardItem key={data.id} data={data} />)}{' '}
-      <div className="container">
+      {data && data.map(data => <CardItem key={data.id} data={data} />)}
+      <Common>
         <Pagination page={page} totalPages={totalPages} handlePagination={handlePages} />
-      </div>
+      </Common>
     </Common>
   );
 }
