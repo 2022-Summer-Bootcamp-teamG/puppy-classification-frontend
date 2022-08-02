@@ -35,6 +35,7 @@ const Common = styled.div`
   justify-content: space-between;
   margin: 1.5rem auto;
   width: 70rem;
+
   border-bottom: 0.25rem solid #49a33a;
   @media all and (min-width: 768px) and (max-width: 1023px) {
     width: 50rem;
