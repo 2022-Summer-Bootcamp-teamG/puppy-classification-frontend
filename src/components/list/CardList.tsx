@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { customAxios } from '../common/CustomAxios';
 import { CardItem } from './CardItem';
 import styled from 'styled-components';
+import { Pagination } from './Pagination';
 
 interface Response {
   data: Data[];
@@ -17,6 +18,8 @@ function CardList({ size }: any) {
   const [data, setData] = useState<Data[]>();
   // page처음 null
   const [page, setPage] = useState(1);
+  const totalPages = 10;
+  const handlePages = (updatePage: number) => setPage(updatePage);
 
   const getData = async (size: any, page: number) => {
     let res = await customAxios.get<Response>(`/puppies?size=${size}&page=${page}`);
@@ -29,7 +32,14 @@ function CardList({ size }: any) {
     getData([size], page);
   }, [size, page]);
 
-  return <Common>{data && data.map(data => <CardItem key={data.id} data={data} />)}</Common>;
+  return (
+    <Common>
+      {data && data.map(data => <CardItem key={data.id} data={data} />)}{' '}
+      <div className="container">
+        <Pagination page={page} totalPages={totalPages} handlePagination={handlePages} />
+      </div>
+    </Common>
+  );
 }
 const Common = styled.div`
   display: flex;
@@ -48,7 +58,7 @@ const Common = styled.div`
     gap: 2rem 1rem;
   }
   @media all and (max-width: 767px) {
-    width: 35rem;
+    width: 20rem;
   }
 `;
 export default CardList;
