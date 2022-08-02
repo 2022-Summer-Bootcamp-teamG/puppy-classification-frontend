@@ -4,25 +4,31 @@ import CarouselBox from './CarouselBox';
 import SwiperCore, { Navigation, Scrollbar } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
-import sample1 from '../../assets/images/sample1.jpg';
-import sample2 from '../../assets/images/sample2.jpg';
-import sample3 from '../../assets/images/sample3.jpg';
 import { Button } from '../common/Button';
 import 'swiper/swiper.min.css';
 import 'swiper/components/navigation/navigation.min.css';
-
+import { Link } from 'react-router-dom';
+import { sample1 } from '../../assets/images/sample1.jpg';
 /*
     이미지 캐러셀 컨테이너
-    TODO: API 연동 후 props&key 및 Link 추가 필요
 */
+interface Props {
+  breed: string;
+  breed_id: number;
+  img: string;
+  percent: number;
+}
 
-function Carousel() {
+function Carousel({ props }: { props: Props[] }) {
   SwiperCore.use([Navigation, Scrollbar]);
   const prevRef = useRef<HTMLButtonElement>(null);
   const nextRef = useRef<HTMLButtonElement>(null);
   const [swiperSetting, setSwiperSetting] = useState<Swiper | null>(null);
-
+  const [zero, setZero] = useState(false);
   useEffect(() => {
+    if (props.length === 0) {
+      setZero(true);
+    }
     if (!swiperSetting) {
       setSwiperSetting({
         spaceBetween: 23,
@@ -57,7 +63,6 @@ function Carousel() {
       });
     }
   }, [swiperSetting]);
-
   return (
     <Common>
       <Button ref={prevRef} isNone={true}>
@@ -65,15 +70,20 @@ function Carousel() {
       </Button>
       {swiperSetting && (
         <Swiper {...swiperSetting}>
-          <SwiperSlide>
-            <CarouselBox img={sample1} breedName="웰시코기" percent={98} />
-          </SwiperSlide>
-          <SwiperSlide>
-            <CarouselBox img={sample2} breedName="골든 리트리버" percent={87} />
-          </SwiperSlide>
-          <SwiperSlide>
-            <CarouselBox img={sample3} breedName="포메라니안" percent={82} />
-          </SwiperSlide>
+          {zero ? <Zero>해당하는 견종을 찾을 수 없습니다.</Zero> : null}
+          {props &&
+            props.map((prop, index) => (
+              <SwiperSlide key={index}>
+                <Link to={`/detail/${prop.breed_id}`} style={{ textDecoration: 'none' }}>
+                  <CarouselBox
+                    count={index + 1}
+                    img={prop.img}
+                    breedName={prop.breed}
+                    percent={prop.percent}
+                  />
+                </Link>
+              </SwiperSlide>
+            ))}
         </Swiper>
       )}
       <Button ref={nextRef} isNone={true}>
@@ -123,6 +133,7 @@ const Common = styled.div`
         margin: 0;
       }
       &-slide {
+        height: 15rem !important;
         display: flex;
         justify-content: center;
       }
@@ -130,6 +141,10 @@ const Common = styled.div`
   }
 `;
 
+const Zero = styled.div`
+  display: flex;
+  justify-content: center;
+`;
 const faStyle = {
   width: '2rem',
   height: '1.5rem',

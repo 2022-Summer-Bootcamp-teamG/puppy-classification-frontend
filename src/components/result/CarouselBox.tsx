@@ -11,13 +11,16 @@ interface CarouselBoxProps {
   breedName: string;
   img: string;
   percent: number;
+  count: number;
 }
 
-function CarouselBox({ img, percent, breedName }: CarouselBoxProps) {
+function CarouselBox({ img, percent, breedName, count }: CarouselBoxProps) {
   return (
     <Common>
       <Image src={img} alt={breedName} />
-      <BreedName>{breedName}</BreedName>
+      <BreedName>
+        {count}. {breedName}
+      </BreedName>
       <Percent>정확도: {percent}%</Percent>
     </Common>
   );

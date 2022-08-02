@@ -7,6 +7,7 @@ import { LabelButton } from './LabelButton';
 import { MainImage } from './MainImage';
 import { FaTimes } from 'react-icons/fa';
 import { Dropzone } from './Dropzone';
+import { Link } from 'react-router-dom';
 
 /* 
     메인페이지 이미지 업로드 창
@@ -15,12 +16,21 @@ import { Dropzone } from './Dropzone';
 
 function ImageUploader() {
   const [fileImage, setFileImage] = useState('');
+  const [file, setFile] = useState<File | null>(null);
   const [isUpload, setIsUpload] = useState(false);
   const [isDrag, setIsDrag] = useState(false);
   const uploadBoxRef = useRef<any>(null);
+
+  const getData = (event: React.MouseEvent<HTMLElement>) => {
+    if (!file) {
+      event.preventDefault();
+      alert('이미지를 업로드해주세요');
+    }
+  };
   const saveFileImage = (event: React.ChangeEvent<HTMLInputElement>) => {
     // @ts-ignore
     setFileImage(URL.createObjectURL(event.target.files[0]));
+    setFile(event.target.files[0]);
     setIsUpload(true);
     setIsDrag(false);
   };
@@ -32,6 +42,7 @@ function ImageUploader() {
   useEffect(() => {
     const changeHandler = (file: File) => {
       setFileImage(URL.createObjectURL(file));
+      setFile(file);
       setIsUpload(true);
     };
     const dropHandler = (event: React.DragEvent<HTMLDivElement>) => {
@@ -51,11 +62,6 @@ function ImageUploader() {
     uploadBoxRef.current.addEventListener('drop', dropHandler);
     uploadBoxRef.current.addEventListener('dragover', dragOverHandler);
     uploadBoxRef.current.addEventListener('dragleave', dragLeaveHandler);
-    return () => {
-      uploadBoxRef.current.removeEventListener('drop', dropHandler);
-      uploadBoxRef.current.removeEventListener('dragover', dragOverHandler);
-      uploadBoxRef.current.removeEventListener('dragleave', dragLeaveHandler);
-    };
   }, []);
   return (
     <UploaderCommon>
@@ -68,19 +74,20 @@ function ImageUploader() {
         <Icon isUpload={isUpload} onClick={cancelUpload}>
           <FaTimes />
         </Icon>
-        <Dropzone isUpload={isUpload} isDrag={isDrag} htmlFor="image" ref={uploadBoxRef} />
+        <Dropzone isUpload={isUpload} isDrag={isDrag} htmlFor="file" ref={uploadBoxRef} />
       </div>
       <input
-        id="image"
-        name="image"
+        id="file"
+        name="file"
         type="file"
         accept=".gif, .jpg, ,jpeg, .png"
         onChange={saveFileImage}
         style={{ display: 'none' }}
       />
       <LabelButton htmlFor="image-search">검색</LabelButton>
-      {/* 이미지 비었을 시 alert 추가 예정 */}
-      <input id="image-search" name="image-search" type="submit" style={{ display: 'none' }} />
+      <Link to="/result" onClick={getData} state={{ file: file }}>
+        <input id="image-search" name="image-search" type="submit" style={{ display: 'none' }} />
+      </Link>
     </UploaderCommon>
   );
 }
