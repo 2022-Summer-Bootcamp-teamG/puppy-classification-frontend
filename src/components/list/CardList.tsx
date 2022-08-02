@@ -22,6 +22,7 @@ function CardList({ size }: any) {
     let res = await customAxios.get<Response>(`/puppies?size=${size}&page=${page}`);
     let { data } = res.data;
     setData(data);
+    // size 확인용
     console.log(size);
   };
   useEffect(() => {

@@ -7,7 +7,7 @@ import styled from 'styled-components';
 
 const categories = [
   {
-    size: 0,
+    size: null,
     text: '전체',
   },
   {
@@ -24,6 +24,18 @@ const categories = [
   },
 ];
 
+const Categories = ({ onSelect, size }: any) => {
+  return (
+    <CategoryListBlock>
+      {categories.map(c => (
+        <Category key={c.text} onClick={() => onSelect(c.size)}>
+          {c.text}
+        </Category>
+      ))}
+    </CategoryListBlock>
+  );
+};
+
 const CategoryListBlock = styled.div`
   display: flex;
   align-items: flex-start;
@@ -35,9 +47,9 @@ const CategoryListBlock = styled.div`
   }
   @media all and (max-width: 767px) {
     width: 100%;
-    margin: 0;
+    margin-top: 1rem;
     border: none;
-    background: #dae8d9;
+    background: #ffffff;
   }
 `;
 
@@ -58,17 +70,5 @@ const Category = styled.div`
   @media all and (max-width: 767px) {
   }
 `;
-
-const Categories = ({ onSelect, size }: any) => {
-  return (
-    <CategoryListBlock>
-      {categories.map(c => (
-        <Category key={c.text} onClick={() => onSelect(c.size)}>
-          {c.text}
-        </Category>
-      ))}
-    </CategoryListBlock>
-  );
-};
 
 export default Categories;
