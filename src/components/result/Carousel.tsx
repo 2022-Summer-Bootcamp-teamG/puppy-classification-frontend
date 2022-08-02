@@ -8,7 +8,6 @@ import { Button } from '../common/Button';
 import 'swiper/swiper.min.css';
 import 'swiper/components/navigation/navigation.min.css';
 import { Link } from 'react-router-dom';
-import { sample1 } from '../../assets/images/sample1.jpg';
 /*
     이미지 캐러셀 컨테이너
 */

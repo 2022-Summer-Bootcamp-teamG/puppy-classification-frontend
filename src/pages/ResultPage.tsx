@@ -6,7 +6,6 @@ import Header from '../components/common/Header';
 import { Common } from '../components/common/Common';
 import Loading from '../components/common/Loading';
 import { customAxios } from '../components/common/CustomAxios';
-import { AxiosResponse } from 'axios';
 import { useLocation } from 'react-router-dom';
 
 /* 
