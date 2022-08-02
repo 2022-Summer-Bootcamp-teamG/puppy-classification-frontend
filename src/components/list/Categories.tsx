@@ -1,9 +1,13 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 /**
  * Todo: category 상태 useState로 관리
  * Todo: Category 선택 시 색 유지
  */
+
+interface CategoriesProps {
+  active: boolean;
+}
 
 const categories = [
   {
@@ -28,7 +32,7 @@ const Categories = ({ onSelect, size }: any) => {
   return (
     <CategoryListBlock>
       {categories.map(c => (
-        <Category key={c.text} onClick={() => onSelect(c.size)}>
+        <Category key={c.text} active={size === c.size} onClick={() => onSelect(c.size)}>
           {c.text}
         </Category>
       ))}
@@ -53,7 +57,7 @@ const CategoryListBlock = styled.div`
   }
 `;
 
-const Category = styled.div`
+const Category = styled.div<CategoriesProps>`
   font-size: 1.2rem;
   font-weight: 600;
   cursor: pointer;
@@ -67,6 +71,16 @@ const Category = styled.div`
   &:hover {
     color: green;
   }
+  ${props =>
+    props.active &&
+    css`
+      font-weight: 600;
+      border-bottom: 2px solid green;
+      color: green;
+      &:hover {
+        color: green;
+      }
+    `}
   @media all and (max-width: 767px) {
   }
 `;
