@@ -16,6 +16,7 @@
     "es-abstract": "^1.20.1",
     "file-loader": "^6.2.0",
     "lodash": "^4.17.21",
+    "qs": "^6.11.0",
     "react": "^18.2.0",
     "react-chartjs-2": "^4.3.1",
     "react-dom": "^18.2.0",

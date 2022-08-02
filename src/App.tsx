@@ -5,6 +5,7 @@ import ResultPage from './pages/ResultPage';
 import DetailPage from './pages/DetailPage';
 import NotFound from './components/common/NotFound';
 import ListPage from './pages/ListPage';
+import SearchPage from './pages/SearchPage';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/detail/:id" element={<DetailPage />} />
           <Route element={<NotFound />} />
           <Route path="/list" element={<ListPage />} />
+          <Route path="/search" element={<SearchPage />} />
         </Routes>
       </BrowserRouter>
     </div>

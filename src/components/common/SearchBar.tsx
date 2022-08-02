@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { FaSearch } from 'react-icons/fa';
 import { Mobile } from './MediaQuery';
 import { SearchContainer, CheckBox, SearchBox } from './SearchBarStyle';
+import { Link, useNavigate } from 'react-router-dom';
 
 /* 
     검색창
@@ -14,15 +15,60 @@ interface SearchBarProps {
 }
 
 function SearchBar({ isTransition }: SearchBarProps) {
+  const [search, setSearch] = useState('');
+  const [check, setCheck] = useState(false);
+  const navigate = useNavigate();
+  const onChangeSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+    e.preventDefault();
+    setSearch(e.target.value);
+  };
+  const onSearch = (e: React.MouseEvent<HTMLElement>) => {
+    if (search === '') {
+      e.preventDefault();
+      alert('검색어를 입력해주세요');
+    }
+  };
+  const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') {
+      if (search === '') {
+        e.preventDefault();
+        alert('검색어를 입력해주세요');
+      }
+      navigate(`/search?kw=${search}`);
+    }
+  };
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.checked) {
+      setCheck(true);
+    }
+  };
+  const onSearchMobile = (e: React.MouseEvent<HTMLElement>) => {
+    if (check === true) {
+      if (search === '') {
+        e.preventDefault();
+        alert('검색어를 입력해주세요');
+      } else {
+        e.preventDefault();
+        navigate(`/search?kw=${search}`);
+        setCheck(false);
+      }
+    }
+  };
   if (isTransition) {
     return (
       <SearchContainer>
         <Mobile>
-          <CheckBox id="check" type="checkbox" />
+          <CheckBox id="check" type="checkbox" onChange={handleChange} />
         </Mobile>
         <SearchBox>
-          <Input type="text" placeholder="견종 이름으로 검색하기" isTransition={true} />
-          <Label htmlFor="check" isTransition={true}>
+          <Input
+            type="text"
+            placeholder="견종 이름으로 검색하기"
+            isTransition={true}
+            onChange={onChangeSearch}
+            onKeyPress={handleKeyPress}
+          />
+          <Label htmlFor="check" onClick={onSearchMobile} isTransition={true}>
             <FaSearch />
           </Label>
         </SearchBox>
@@ -32,10 +78,18 @@ function SearchBar({ isTransition }: SearchBarProps) {
     return (
       <SearchContainer>
         <SearchBox>
-          <Input type="text" placeholder="견종 이름으로 검색하기" isTransition={false} />
-          <Label isTransition={false}>
-            <FaSearch />
-          </Label>
+          <Input
+            type="text"
+            placeholder="견종 이름으로 검색하기"
+            isTransition={false}
+            onChange={onChangeSearch}
+            onKeyPress={handleKeyPress}
+          />
+          <Link to={`/search?kw=${search}`} onClick={onSearch}>
+            <Label isTransition={false}>
+              <FaSearch />
+            </Label>
+          </Link>
         </SearchBox>
       </SearchContainer>
     );

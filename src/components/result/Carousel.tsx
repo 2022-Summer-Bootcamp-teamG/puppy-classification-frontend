@@ -143,6 +143,7 @@ const Common = styled.div`
 const Zero = styled.div`
   display: flex;
   justify-content: center;
+  font-family: Pretendard;
 `;
 const faStyle = {
   width: '2rem',
