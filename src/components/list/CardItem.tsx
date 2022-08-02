@@ -2,13 +2,14 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { ItemImage } from './ItemImage';
-import { Data } from './CardList';
 
 interface CardProps {
-  data: Data;
+  id: number;
+  img_url: string;
+  name: string;
 }
 
-export const CardItem: React.FC<CardProps> = ({ data }) => {
+export const CardItem = ({ data }: { data: CardProps }) => {
   return (
     <Common>
       <Link to={`/detail/${data.id}`}>
