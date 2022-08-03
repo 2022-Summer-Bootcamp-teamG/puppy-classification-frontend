@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { customAxios } from '../common/CustomAxios';
 import { Title } from '../common/Title';
 import CardItem from '../list/CardItem';
+import { Pagination } from '../list/Pagination';
 
 /* 검색 결과 카드 리스트 */
 interface Response {
@@ -28,27 +29,30 @@ export interface Meta {
 
 function SearchCardList({ keyword }: { keyword: string }) {
   const [data, setData] = useState<Search[]>();
-  const [meta, setMeta] = useState<Meta>();
   const [zero, setZero] = useState(false);
   const [page, setPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
+  const handlePages = (updatePage: number) => setPage(updatePage);
   const getData = async () => {
     setZero(false);
     let res = await customAxios.get<Response>(`/search?kw=${keyword}&page=${page}`);
     setData(res.data.data);
-    setMeta(res.data.meta);
-    console.log(res.data.meta.page);
+    setTotalPages(res.data.meta.pages);
     if (res.data.data.length === 0) {
       setZero(true);
     }
   };
   useEffect(() => {
     getData();
-  }, [keyword]);
+  }, [keyword, page]);
   return (
     <React.Fragment>
       <SearchTitle>{keyword}: 검색 결과</SearchTitle>
       {zero ? <Zero>해당하는 견종을 찾을 수 없습니다.</Zero> : null}
       <Common>{data && data.map(data => <CardItem key={data.id} data={data} />)}</Common>
+      {zero ? null : (
+        <Pagination page={page} totalPages={totalPages} handlePagination={handlePages} />
+      )}
     </React.Fragment>
   );
 }
