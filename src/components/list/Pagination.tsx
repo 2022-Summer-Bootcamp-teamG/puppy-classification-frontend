@@ -8,6 +8,23 @@ export interface Props {
   handlePagination: (page: number) => void;
 }
 export const PaginationComponent: React.FC<Props> = ({ page, totalPages, handlePagination }) => {
+  if (page === 1 && totalPages === 1) {
+    return (
+      <div className={styles.pagination}>
+        <div className={styles.paginationWrapper}>
+          <button
+            onClick={() => handlePagination(1)}
+            type="button"
+            className={classNames(styles.pageItem, {
+              [styles.active]: page === 1,
+            })}
+          >
+            {1}
+          </button>
+        </div>
+      </div>
+    );
+  }
   return (
     <div className={styles.pagination}>
       <div className={styles.paginationWrapper}>
