@@ -27,8 +27,6 @@ function CardList({ size }: any) {
     let { data } = res.data;
     setData(data);
     setTotalPages(res.data.meta.pages);
-    // size 확인용
-    console.log(size);
   };
   useEffect(() => {
     getData([size], page);
