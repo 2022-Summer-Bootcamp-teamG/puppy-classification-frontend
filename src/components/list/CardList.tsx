@@ -3,9 +3,10 @@ import { customAxios } from '../common/CustomAxios';
 import { CardItem } from './CardItem';
 import styled from 'styled-components';
 import { Pagination } from './Pagination';
-
+import { Meta } from '../search/SearchCardList';
 interface Response {
   data: Data[];
+  meta: Meta;
 }
 export interface Data {
   id: number;
@@ -18,20 +19,23 @@ function CardList({ size }: any) {
   const [data, setData] = useState<Data[]>();
   // page처음 null
   const [page, setPage] = useState(1);
-  const totalPages = 10;
+  const [totalPages, setTotalPages] = useState(1);
   const handlePages = (updatePage: number) => setPage(updatePage);
 
   const getData = async (size: any, page: number) => {
     let res = await customAxios.get<Response>(`/puppies?size=${size}&page=${page}`);
     let { data } = res.data;
     setData(data);
+    setTotalPages(res.data.meta.pages);
     // size 확인용
     console.log(size);
   };
   useEffect(() => {
     getData([size], page);
   }, [size, page]);
-
+  useEffect(() => {
+    setPage(1);
+  }, [size]);
   return (
     <Common>
       {data && data.map(data => <CardItem key={data.id} data={data} />)}

@@ -16,7 +16,7 @@ interface Search {
   name: string;
 }
 
-interface Meta {
+export interface Meta {
   has_next: boolean;
   has_prev: boolean;
   next_page: number;
