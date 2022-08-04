@@ -6,11 +6,13 @@ import DetailPage from './pages/DetailPage';
 import NotFound from './components/common/NotFound';
 import ListPage from './pages/ListPage';
 import SearchPage from './pages/SearchPage';
+import ScrollToTop from './components/common/ScrollToTop';
 
 function App() {
   return (
     <div>
       <BrowserRouter>
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<MainPage />} />
           <Route path="/result" element={<ResultPage />} />

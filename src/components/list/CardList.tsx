@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { customAxios } from '../common/CustomAxios';
 import { CardItem } from './CardItem';
 import styled from 'styled-components';
