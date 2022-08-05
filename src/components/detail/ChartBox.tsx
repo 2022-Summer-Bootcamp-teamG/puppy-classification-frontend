@@ -116,8 +116,8 @@ const Text = styled.div`
 `;
 
 const Container = styled.div`
-  width: 23rem;
-  margin-left: 3rem;
+  width: 25rem;
+  margin: 0rem auto;
   @media all and (min-width: 768px) and (max-width: 1023px) {
     width: 19rem;
     margin-left: 1rem;
