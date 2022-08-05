@@ -48,6 +48,7 @@ function ChartBox({
         backgroundColor: 'rgba(73, 163, 58, 0.2)',
         borderColor: '#49a33a',
         borderWidth: 3,
+        animation: true,
       },
     ],
   };
@@ -55,13 +56,21 @@ function ChartBox({
     plugins: {
       legend: {
         display: false,
+        fontSize: 22,
       },
     },
     scales: {
       r: {
+        pointLabels: {
+          font: {
+            size: 13,
+            weight: 'Bold',
+          },
+        },
         suggestedMin: 0,
         suggestedMax: 5,
         ticks: {
+          fontSize: 20,
           stepSize: 1,
           beginAtZero: true,
           showLabelBackdrop: false,
