@@ -6,12 +6,12 @@ const DetailImage = styled.img`
   display: flex;
   border-radius: 5%;
   @media all and (min-width: 768px) and (max-width: 1023px) {
-    width: 17rem;
-    height: 13rem;
+    width: 18rem;
+    height: 14rem;
   }
   @media all and (max-width: 767px) {
-    width: 20rem;
-    height: 15rem;
+    width: 18rem;
+    height: 14rem;
     margin-top: 2rem;
   }
 `;
