@@ -47,7 +47,7 @@ function ChartBox({
         ],
         backgroundColor: 'rgba(73, 163, 58, 0.2)',
         borderColor: '#49a33a',
-        borderWidth: 1,
+        borderWidth: 3,
       },
     ],
   };

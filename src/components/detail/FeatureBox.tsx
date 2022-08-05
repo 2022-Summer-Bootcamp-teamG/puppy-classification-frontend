@@ -34,8 +34,8 @@ const Common = styled.div`
 `;
 
 const Content = styled.div`
-  font-size: 1.1rem;
-  margin: 2rem;
+  font-size: 1.3rem;
+  margin: 3rem;
   font-family: Pretendard;
   align-items: center;
   justify-content: center;
