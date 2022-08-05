@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import spinner from '../../assets/images/spinner.gif';
+import Background from '../../assets/images/Background.png';
 
 /* 로딩창 */
 
@@ -16,10 +17,13 @@ function Loading() {
 const Common = styled.div`
   display: flex;
   justify-content: center;
+  height: 100vh;
+  background-image: url(${Background});
+  background-position: center;
+  background-rapeat: no-repeat;
+  background-size: cover;
   align-items: center;
   flex-direction: column;
-  height: 100vh;
-  background: #ffffffb7;
 `;
 
 const Text = styled.div`

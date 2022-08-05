@@ -123,7 +123,7 @@ const BackgroundImage = styled(MainImage)`
 
 const SelectImage = styled(MainImage)`
   width: 17rem;
-  height: 14rem;
+  height: 13rem;
   margin: auto;
   @media all and (max-width: 767px) {
     width: 16rem;

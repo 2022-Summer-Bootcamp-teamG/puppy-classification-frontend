@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const DetailImage = styled.img`
   width: 30rem;
-  height: 25rem;
+  height: auto;
   display: flex;
   border-radius: 5%;
   @media all and (min-width: 768px) and (max-width: 1023px) {

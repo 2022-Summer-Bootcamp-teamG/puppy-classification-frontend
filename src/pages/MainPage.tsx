@@ -6,6 +6,7 @@ import { Common } from '../components/common/Common';
 import SearchBar from '../components/common/SearchBar';
 import ImageUploader from '../components/main/ImageUploader';
 import PuppyButton from '../components/main/PuppyButton';
+import Background from '../assets/images/Background.png';
 
 /* 
   메인 페이지 
@@ -27,16 +28,21 @@ function MainPage() {
 
 const MainCommon = styled(Common)`
   position: relative;
-  margin-top: 3.5rem;
+  height: 100vh;
+  background-image: url(${Background});
+  background-position: center;
+  background-rapeat: no-repeat;
+  background-size: cover;
   @media all and (max-width: 767px) {
     margin-top: 3rem;
+    background-image: none;
   }
 `;
 
 const MainLogo = styled.img`
-  width: 5rem;
-  height: 11rem;
-  margin-bottom: 2rem;
+  width: 8rem;
+  height: auto;
+  margin: 2rem 0;
 `;
 
 export default MainPage;

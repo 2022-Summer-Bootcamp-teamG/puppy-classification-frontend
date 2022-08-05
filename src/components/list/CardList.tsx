@@ -57,7 +57,7 @@ const Common = styled.div`
   flex-direction: row;
   @media all and (min-width: 768px) and (max-width: 1023px) {
     width: 45rem;
-    gap: 2rem 1rem;
+    gap: 2rem 3rem;
   }
   @media all and (max-width: 767px) {
     width: 20rem;

@@ -20,12 +20,14 @@ const Button = styled.div`
   top: -2rem;
   width: 11rem;
   height: 2rem;
+  margin-top: 3.5rem;
   border-radius: 15px;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.15);
   border: solid 1px rgba(86, 156, 77, 0.8);
   cursor: pointer;
   @media all and (max-width: 767px) {
     width: 9.5rem;
+    margin-top: 0.5rem;
   }
 `;
 
