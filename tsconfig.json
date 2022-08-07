@@ -5,6 +5,7 @@
         "module": "commonjs",
         "strict": true,
         "esModuleInterop": true,
-        "outDir": "./dist"
+        "outDir": "./dist",
+        "strictNullChecks": false,
     }
 }

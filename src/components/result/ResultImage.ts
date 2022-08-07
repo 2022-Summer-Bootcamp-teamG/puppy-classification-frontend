@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const Image = styled.img`
   width: 19rem;
-  height: 13rem;
+  height: 12.5rem;
   flex-grow: 0;
   margin-bottom: 0.5rem;
   border-radius: 12px;

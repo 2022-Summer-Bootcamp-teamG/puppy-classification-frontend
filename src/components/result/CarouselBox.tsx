@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Image } from './common/Image';
+import { Image } from './ResultImage';
 
 /* 
   캐러샐 내부 개별 콘텐츠
@@ -11,13 +11,16 @@ interface CarouselBoxProps {
   breedName: string;
   img: string;
   percent: number;
+  count: number;
 }
 
-function CarouselBox({ img, percent, breedName }: CarouselBoxProps) {
+function CarouselBox({ img, percent, breedName, count }: CarouselBoxProps) {
   return (
     <Common>
       <Image src={img} alt={breedName} />
-      <BreedName>{breedName}</BreedName>
+      <BreedName>
+        {count}. {breedName}
+      </BreedName>
       <Percent>정확도: {percent}%</Percent>
     </Common>
   );
@@ -46,7 +49,7 @@ const Percent = styled.div`
   margin-left: 0.3rem;
   font-size: 1rem;
   font-family: Pretendard;
-  ont-weight: 500;
+  font-weight: 500;
   color: #454545;
   @media all and (min-width: 768px) and (max-width: 1023px) {
     font-size: 0.9rem;

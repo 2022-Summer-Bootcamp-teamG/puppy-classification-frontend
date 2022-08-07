@@ -1,10 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import defaultLogo from '../assets/images/textLogo.svg';
-import mobileLogo from '../assets/images/mobileLogo.svg';
-import SearchBar from './common/SearchBar';
-import { Default, Mobile } from './common/MediaQuery';
+import defaultLogo from '../../assets/images/textLogo.svg';
+import mobileLogo from '../../assets/images/mobileLogo.svg';
+import SearchBar from './SearchBar';
+import { Default, Mobile } from './MediaQuery';
+import { Logo } from './Logo';
 
 /* 
     결과페이지와 결과상세페이지 상단 헤더
@@ -23,7 +24,7 @@ function Header() {
         </Mobile>
       </Link>
       <SearchBarContainer>
-        <SearchBar />
+        <SearchBar isTransition={true} />
       </SearchBarContainer>
     </Common>
   );
@@ -34,6 +35,7 @@ const Common = styled.div`
   justify-content: space-between;
   margin: 1.5rem auto;
   width: 70rem;
+
   border-bottom: 0.25rem solid #49a33a;
   @media all and (min-width: 768px) and (max-width: 1023px) {
     width: 50rem;
@@ -43,19 +45,6 @@ const Common = styled.div`
     margin: 0;
     border: none;
     background: #dae8d9;
-  }
-`;
-
-const Logo = styled.img`
-  display: flex;
-  width: 8rem;
-  margin-bottom: 1rem;
-  @media all and (min-width: 768px) and (max-width: 1023px) {
-    width: 7rem;
-  }
-  @media all and (max-width: 767px) {
-    width: 2.6rem;
-    margin: 0.8rem;
   }
 `;
 
